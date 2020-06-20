@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="yahtzee">
+    <meta name="keywords" content="numbers">
+    <meta name="author" content="devin-jhu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahtzee</title>
+  </head>
+  <style>
+    table, th, td {
+    border: 1px solid black;
+    }
+  </style>
+  <body>
+    <p>Yahtzee</p>
+    <table>
+      <tr>
+        <th scope="row"> 1</th> 
+        <td><button onclick =>choose</button></td>
+      </tr>
+      <tr>
+        <th scope="row"> 2</th>
+        <td><button onclick =>choose</button></td>
+      </tr>
+      <tr>
+        <th scope="row"> 3</th>
+        <td><button onclick =>choose</button></td>
+      </tr>
+      <tr>
+        <th scope="row"> 4</th>
+        <td><button onclick =>choose</button></td>
+      </tr>
+      <tr>
+        <th scope="row"> 5</th>
+        <td><button onclick =>choose</button></td>
+      </tr>
+      <tr>
+        <th scope="row"> 6</th>
+        <td><button onclick =>choose</button></td>
+      </tr>
+      <tr>
+        <th scope="row"> +35 if > = 63</th>
+        <td><p id="bonuspoints"></p></td>
+        <td><button onclick = "bonus()">choose</button></td>
+      </tr>
+      <tr>
+        <th scope="row"> upper total</th>  
+      </tr>
+      <tr>
+        <th scope="row"> 3 of a kind</th>
+        <td><button onclick =>choose</button></td>
+      </tr>
+      <tr>
+        <th scope="row"> 4 of a kind</th>
+        <td><button onclick =>choose</button></td>
+      </tr>
+      <tr>
+        <th scope="row"> full house</th>
+        <td><p id="fullhousepoints"></p></td>
+        <td><button onclick = "fullhouse()">choose</button></td>
+      </tr>
+      <tr>
+        <th scope="row"> Small Straight </th>
+        <td><p id="smallstraightpoints"></p></td>
+        <td><button onclick="smallstraight()">choose</button></td> 
+      </tr>
+      <tr>
+        <th scope = "row"> Large Straight </th>
+        <td><p id = "largestraightpoints"></p></td>
+        <td><button onclick = "largestraight()">choose</button></td>
+      </tr>
+      <tr>
+        <th scope = "row"> Yahtzee</th>
+        <td><p id = "yahtzeepoints"></p></td>
+        <td><button onclick = "yahtzee()">choose</button></td>
+      </tr>
+      <tr>
+        <th scope = "row"> extra Yahtzee</th>
+        <td><p id = "extrayahtzeepoints"></p></td>
+        <td><button onclick = "extrayahtzee()">choose</button></td>
+      </tr>
+      <tr>
+        <th scope = "row"> Chance</th>
+        <td><button onclick = "chance()">choose</button></td>
+      </tr>
+      <tr>
+        <th scope = "row"> Lower Total</th>
+      </tr>
+      <tr>
+        <th scope = "row"> Score</th>
+      </tr>
+    </table>
+    <button id="rollbutton" onclick="rolldice()">Roll!</button>
+    <button onclick="dice1()">keep dice 1</button>
+    <button onclick="dice2()">keep dice 2</button>
+    <button onclick="dice3()">keep dice 3</button>
+    <button onclick="dice4()">keep dice 4</button>
+    <button onclick="dice5()">keep dice 5</button>
+    <p id="diceone"></p> <p id="dicetwo"></p> <p id="dicethree"></p> <p id="dicefour"></p> <p id="dicefive"></p>
+    <script>
+      let dicevalues = [0,0,0,0,0,0,0];
+      let counter=0;
+      let dice=[];
+      let roll=[true,true,true,true,true,true];
+      // if true change to false if false change to true
+      function dice1(){
+        roll[1]=false;
+      }
+      function dice2(){
+        roll[2]=false;
+      }
+      function dice3(){
+        roll[3]=false;
+      }
+      function dice4(){
+        roll[4]=false;
+      }
+      function dice5(){
+        roll[5]=false;
+      }
+      function rolldice() {
+        if (roll[1]==true){
+          document.getElementById("diceone").innerHTML = Math.floor(Math.random() * 6) + 1;
+          dice[1]=document.getElementById("diceone");
+        }
+        if (roll[2]==true){
+          document.getElementById("dicetwo").innerHTML = Math.floor(Math.random() * 6) + 1; 
+          dice[2]=document.getElementById("dicetwo");
+        }
+        if (roll[3]==true){
+          document.getElementById("dicethree").innerHTML = Math.floor(Math.random() * 6) + 1;  
+          dice[3]=document.getElementById("dicethree");
+        }
+        if (roll[4]==true){
+          document.getElementById("dicefour").innerHTML = Math.floor(Math.random() * 6) + 1;  
+          dice[4]=document.getElementById("dicefour"); 
+        }
+        if (roll[5]==true){
+          document.getElementById("dicefive").innerHTML = Math.floor(Math.random() * 6) + 1;
+          dice[5]=document.getElementById("dicefive");
+        }
+        counter=counter+1;
+        if (counter==3){
+        document.getElementById("rollbutton").disabled = true; 
+        countdice();
+        }
+      }
+      //make dice each sepratly go throught  this function
+      function countdice() {
+        if (dice[1]==1){
+        dicevalues[1]= dicevalues[1]+1;
+        }
+        if (dice==2){
+        dicevalues[2]= dicevalues[2]+1;
+        }
+        if (dice==3){
+        dicevalues[3]= dicevalues[3]+1;
+        }
+        if (dice==4){
+        dicevalues[4]= dicevalues[4]+1;
+        }
+        if (dice==5){
+        dicevalues[5]= dicevalues[5]+1;
+        }
+        if (dice==6){
+        dicevalues[6]= dicevalues[6]+1;
+        }
+        alert (dicevalues[1]);
+      }
+        
+        //dicevalues[1]= dicevalues[1]+1;
+        //dicevalues[2]= dicevalues[2]+1;
+        //dicevalues[3]= dicevalues[3]+1;
+        //dicevalues[4]= dicevalues[4]+1;
+        //dicevalues[5]= dicevalues[5]+1;
+        //alert (dicevalues[1]);
+      
+      function bonus() {
+        document.getElementById("bonuspoints").innerHTML = "35";
+      }
+      function fullhouse() {
+        document.getElementById("fullhousepoints").innerHTML = "25";
+      }
+      function smallstraight() {
+        document.getElementById("smallstraightpoints").innerHTML = "30";
+      }
+      function largestraight() {
+        document.getElementById("largestraightpoints").innerHTML = "40";
+      }
+      function yahtzee() {
+        document.getElementById("yahtzeepoints").innerHTML = "50";
+      }
+      function extrayahtzee() {
+        document.getElementById("extrayahtzeepoints").innerHTML = "100";
+      }
+    </script>
+  </body>
+</html>
