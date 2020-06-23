@@ -18,72 +18,66 @@
     <table>
       <tr>
         <th scope="row"> 1</th> 
-        <td><button onclick =>choose</button></td>
+        <td><button id= "onesbutton" onclick = "ones()">choose</button><p id="onespoints"></p></td>
       </tr>
       <tr>
         <th scope="row"> 2</th>
-        <td><button onclick =>choose</button></td>
+        <td><button id= "twosbutton" onclick = "twos()">choose</button><p id="twospoints"></p></td>
       </tr>
       <tr>
         <th scope="row"> 3</th>
-        <td><button onclick =>choose</button></td>
+        <td><button id= "threesbutton" onclick = "threes()">choose</button><p id="threespoints"></p></td>
       </tr>
       <tr>
         <th scope="row"> 4</th>
-        <td><button onclick =>choose</button></td>
+        <td><button id= "foursbutton" onclick = "fours()">choose</button><p id="fourspoints"></p></td>
       </tr>
       <tr>
         <th scope="row"> 5</th>
-        <td><button onclick =>choose</button></td>
+        <td><button id= "fivesbutton" onclick = "fives()">choose</button><p id="fivespoints"></p></td>
       </tr>
       <tr>
         <th scope="row"> 6</th>
-        <td><button onclick =>choose</button></td>
+        <td><button id= "sixesbutton" onclick = "sixes()">choose</button><p id="sixespoints"></p></td>
       </tr>
       <tr>
         <th scope="row"> +35 if > = 63</th>
-        <td><p id="bonuspoints"></p></td>
-        <td><button onclick = "bonus()">choose</button></td>
+       <!--<td><button id= "bonusbutton" onclick = "bonus()">choose</button><p id="bonuspoints"></p></td>-->
       </tr>
       <tr>
         <th scope="row"> upper total</th>  
       </tr>
       <tr>
         <th scope="row"> 3 of a kind</th>
-        <td><button onclick =>choose</button></td>
+        <td><button id= "threeofakindbutton" onclick = "threeofakind()">choose</button><p id="threeofakindpoints"></p></td>
       </tr>
       <tr>
         <th scope="row"> 4 of a kind</th>
-        <td><button onclick =>choose</button></td>
+        <td><button id= "fourofakindbutton" onclick = "fourofakind()">choose</button><p id="fourofakindpoints"></p></td>
       </tr>
       <tr>
         <th scope="row"> full house</th>
-        <td><p id="fullhousepoints"></p></td>
-        <td><button onclick = "fullhouse()">choose</button></td>
+        <td><button id= "fullhousebutton" onclick = "fullhouse()">choose</button><p id="fullhousepoints"></p></td>
       </tr>
       <tr>
         <th scope="row"> Small Straight </th>
-        <td><p id="smallstraightpoints"></p></td>
-        <td><button onclick="smallstraight()">choose</button></td> 
+        <td><button id= "smallstraightbutton"  onclick="smallstraight()">choose</button><p id="smallstraightpoints"></p></td> 
       </tr>
       <tr>
         <th scope = "row"> Large Straight </th>
-        <td><p id = "largestraightpoints"></p></td>
-        <td><button onclick = "largestraight()">choose</button></td>
+        <td><button id= "largestraightbutton" onclick = "largestraight()">choose</button><p id = "largestraightpoints"></p></td>
       </tr>
       <tr>
         <th scope = "row"> Yahtzee</th>
-        <td><p id = "yahtzeepoints"></p></td>
-        <td><button onclick = "yahtzee()">choose</button></td>
+        <td><button id= "yahtzeebutton" onclick = "yahtzee()">choose</button><p id = "yahtzeepoints"></p></td>
       </tr>
       <tr>
         <th scope = "row"> extra Yahtzee</th>
-        <td><p id = "extrayahtzeepoints"></p></td>
-        <td><button onclick = "extrayahtzee()">choose</button></td>
+        <td><button onclick = "extrayahtzee()">choose</button><p id = "extrayahtzeepoints"></p></td>
       </tr>
       <tr>
         <th scope = "row"> Chance</th>
-        <td><button onclick = "chance()">choose</button></td>
+        <td><button id= "chancebutton" onclick = "chance()">choose</button><p id = "chancepoints"></p></td>
       </tr>
       <tr>
         <th scope = "row"> Lower Total</th>
@@ -92,108 +86,227 @@
         <th scope = "row"> Score</th>
       </tr>
     </table>
-    <button id="rollbutton" onclick="rolldice()">Roll!</button>
-    <button onclick="dice1()">keep dice 1</button>
-    <button onclick="dice2()">keep dice 2</button>
-    <button onclick="dice3()">keep dice 3</button>
-    <button onclick="dice4()">keep dice 4</button>
-    <button onclick="dice5()">keep dice 5</button>
+    <button id= "rollbutton" onclick= "rolldice()">Roll!</button>
+    <button onclick= "dice1()">keep dice 1</button>
+    <button onclick= "dice2()">keep dice 2</button>
+    <button onclick= "dice3()">keep dice 3</button>
+    <button onclick= "dice4()">keep dice 4</button>
+    <button onclick= "dice5()">keep dice 5</button>
     <p id="diceone"></p> <p id="dicetwo"></p> <p id="dicethree"></p> <p id="dicefour"></p> <p id="dicefive"></p>
     <script>
+      // the bonus button doesnt work and neither do the totals because they all require the full lenght game to work properly
+      //this is only one turn i could not continue because of the difficult logic about what to reset between turns
+      // i have also left myself some other notes so if i want to continue this project some other time I can
+      //idealy the buttons would disable after one was pressed until it was that persons turn again
       let dicevalues = [0,0,0,0,0,0,0];
-      let counter=0;
-      let dice=[];
-      let roll=[true,true,true,true,true,true];
-      // if true change to false if false change to true
+      let counter = 0;
+      let dice = [];
+      let roll = [true,true,true,true,true,true];
+      // idealy the dice can change back and forth 
       function dice1(){
-        roll[1]=false;
+        roll[1] = false;
       }
       function dice2(){
-        roll[2]=false;
+        roll[2] = false;
       }
       function dice3(){
-        roll[3]=false;
+        roll[3] = false;
       }
       function dice4(){
-        roll[4]=false;
+        roll[4] = false;
       }
       function dice5(){
-        roll[5]=false;
+        roll[5] = false;
       }
       function rolldice() {
-        if (roll[1]==true){
-          document.getElementById("diceone").innerHTML = Math.floor(Math.random() * 6) + 1;
-          dice[1]=document.getElementById("diceone");
+        dicevalues = [0,0,0,0,0,0,0];
+        if (roll[1] == true){
+          dice[1]=document.getElementById("diceone").innerHTML = Math.floor(Math.random() * 6) + 1;
+          dice[1]=+dice[1];
         }
-        if (roll[2]==true){
-          document.getElementById("dicetwo").innerHTML = Math.floor(Math.random() * 6) + 1; 
-          dice[2]=document.getElementById("dicetwo");
+        if (roll[2] == true){
+          dice[2]=document.getElementById("dicetwo").innerHTML = Math.floor(Math.random() * 6) + 1; 
+          dice[2]=+dice[2];
         }
-        if (roll[3]==true){
-          document.getElementById("dicethree").innerHTML = Math.floor(Math.random() * 6) + 1;  
-          dice[3]=document.getElementById("dicethree");
+        if (roll[3] == true){
+          dice[3]=document.getElementById("dicethree").innerHTML = Math.floor(Math.random() * 6) + 1;  
+          dice[3]=+dice[3];
         }
-        if (roll[4]==true){
-          document.getElementById("dicefour").innerHTML = Math.floor(Math.random() * 6) + 1;  
-          dice[4]=document.getElementById("dicefour"); 
+        if (roll[4] == true){
+          dice[4]=document.getElementById("dicefour").innerHTML = Math.floor(Math.random() * 6) + 1;  
+          dice[4]=+dice[4];
         }
-        if (roll[5]==true){
-          document.getElementById("dicefive").innerHTML = Math.floor(Math.random() * 6) + 1;
-          dice[5]=document.getElementById("dicefive");
+        if (roll[5] == true){
+          dice[5]=document.getElementById("dicefive").innerHTML = Math.floor(Math.random() * 6) + 1;
+          dice[5]=+dice[5];
         }
+        countdice(dice[1]);
+        countdice(dice[2]);
+        countdice(dice[3]);
+        countdice(dice[4]);
+        countdice(dice[5]);
         counter=counter+1;
-        if (counter==3){
-        document.getElementById("rollbutton").disabled = true; 
-        countdice();
+        if (counter == 3){
+          document.getElementById("rollbutton").disabled = true;
         }
+        
       }
-      //make dice each sepratly go throught  this function
-      function countdice() {
-        if (dice[1]==1){
-        dicevalues[1]= dicevalues[1]+1;
+      //my dad taught me how to do a parameters
+      function countdice(dicenumber) {
+        if (dicenumber == 1){
+        dicevalues[1] = dicevalues[1]+1;
         }
-        if (dice==2){
-        dicevalues[2]= dicevalues[2]+1;
+        if (dicenumber == 2){
+        dicevalues[2] = dicevalues[2]+1;
         }
-        if (dice==3){
+        if (dicenumber == 3){
         dicevalues[3]= dicevalues[3]+1;
         }
-        if (dice==4){
+        if (dicenumber == 4){
         dicevalues[4]= dicevalues[4]+1;
         }
-        if (dice==5){
+        if (dicenumber == 5){
         dicevalues[5]= dicevalues[5]+1;
         }
-        if (dice==6){
+        if (dicenumber == 6){
         dicevalues[6]= dicevalues[6]+1;
         }
-        alert (dicevalues[1]);
       }
-        
-        //dicevalues[1]= dicevalues[1]+1;
-        //dicevalues[2]= dicevalues[2]+1;
-        //dicevalues[3]= dicevalues[3]+1;
-        //dicevalues[4]= dicevalues[4]+1;
-        //dicevalues[5]= dicevalues[5]+1;
-        //alert (dicevalues[1]);
-      
-      function bonus() {
-        document.getElementById("bonuspoints").innerHTML = "35";
+      //function bonus() {
+      //  document.getElementById("bonuspoints").innerHTML = "35";
+      //  document.getElementById("bonusbutton").disabled = true;
+     // }
+      function ones() {
+        if (dicevalues[1]>=1) {
+        document.getElementById("onespoints").innerHTML = sumofnumbers(1);
+        }
+        else{
+        document.getElementById("onespoints").innerHTML = "0";
+        }
+        document.getElementById("onesbutton").disabled = true;
+      }
+      function twos() {
+        if (dicevalues[2]>=1) {
+        document.getElementById("twospoints").innerHTML = sumofnumbers(2);
+        }
+        else{
+        document.getElementById("twospoints").innerHTML = "0";
+        }
+        document.getElementById("twosbutton").disabled = true;
+      }
+      function threes() {
+        if (dicevalues[3]>=1) {
+        document.getElementById("threespoints").innerHTML = sumofnumbers(3);
+        }
+        else{
+        document.getElementById("threespoints").innerHTML = "0";
+        }
+        document.getElementById("threesbutton").disabled = true;
+      }
+      function fours() {
+        if (dicevalues[4]>=1) {
+        document.getElementById("fourspoints").innerHTML = sumofnumbers(4);
+        }
+        else{
+        document.getElementById("fourspoints").innerHTML = "0";
+        }
+        document.getElementById("foursbutton").disabled = true;
+      }
+      function fives() {
+        if (dicevalues[5]>=1) {
+        document.getElementById("fivespoints").innerHTML = sumofnumbers(5);
+        }
+        else{
+        document.getElementById("fivespoints").innerHTML = "0";
+        }
+        document.getElementById("fivesbutton").disabled = true;
+        }
+      function sixes() {
+        if (dicevalues[6]>=1) {
+        document.getElementById("sixespoints").innerHTML = sumofnumbers(6);
+        }
+        else{
+        document.getElementById("sixespoints").innerHTML = "0";
+        }
+        document.getElementById("sixesbutton").disabled = true;
+      }
+      function threeofakind() {
+        if  (((dicevalues[1])>= 3) ||((dicevalues[2])>= 3) ||((dicevalues[3])>= 3) ||((dicevalues[4])>= 3) ||((dicevalues[5])>= 3) ||((dicevalues[6])>= 3)){
+        document.getElementById("threeofakindpoints").innerHTML = sumofdice();
+        }
+        else{
+        document.getElementById("threeofakindpoints").innerHTML = "0";
+        }
+        document.getElementById("threeofakindbutton").disabled = true;
+      }
+      function fourofakind() {
+        if (((dicevalues[1])>= 4) ||((dicevalues[2])>= 4) ||((dicevalues[3])>= 4) ||((dicevalues[4])>= 4) ||((dicevalues[5])>= 4) ||((dicevalues[6])>= 4)) {
+        document.getElementById("fourofakindpoints").innerHTML = sumofdice();
+        }
+        else{
+        document.getElementById("fourofakindpoints").innerHTML = "0";
+        }
+        document.getElementById("fourofakindbutton").disabled = true;
       }
       function fullhouse() {
+        if ((((dicevalues[1])== 2) ||((dicevalues[2])== 2) ||((dicevalues[3])== 2) ||((dicevalues[4])== 2) ||((dicevalues[5])== 2) ||((dicevalues[6])== 2)) 
+        && (((dicevalues[1])== 3) ||((dicevalues[2])== 3) ||((dicevalues[3])== 2) ||((dicevalues[4])== 3) ||((dicevalues[5])== 3) ||((dicevalues[6])== 3))){
         document.getElementById("fullhousepoints").innerHTML = "25";
+        }
+        else{
+        document.getElementById("fullhousepoints").innerHTML = "0";
+      }
+        document.getElementById("fullhousebutton").disabled = true;
       }
       function smallstraight() {
-        document.getElementById("smallstraightpoints").innerHTML = "30";
+        if ((((dicevalues[4]) >= 1) && ((dicevalues[3]) >= 1)) && (((dicevalues[1])>= 1) && ((dicevalues[2])>= 1) || ((dicevalues[2])>= 1) && ((dicevalues[5]) >= 1) || ((dicevalues[5]) >= 1 ) && ((dicevalues[6]) >= 1))){
+         document.getElementById("smallstraightpoints").innerHTML = "30"; 
+        }
+        else{
+        document.getElementById("smallstraightpoints").innerHTML = "0";
+        }
+        document.getElementById("smallstraightbutton").disabled = true;
       }
       function largestraight() {
+      if ((((dicevalues[2]) >= 1) && ((dicevalues[3]) >= 1) && ((dicevalues[4]) >= 1) && ((dicevalues[5]) >= 1)) && (((dicevalues[1]) >= 1)||((dicevalues[6]) >= 1))){
         document.getElementById("largestraightpoints").innerHTML = "40";
       }
-      function yahtzee() {
-        document.getElementById("yahtzeepoints").innerHTML = "50";
+      else{
+        document.getElementById("largestraightpoints").innerHTML = "0";
       }
+        document.getElementById("largestraightbutton").disabled = true;
+      }
+      function yahtzee() {
+        if (((dicevalues[1])== 5) ||((dicevalues[2])== 5) ||((dicevalues[3])== 5) ||((dicevalues[4])== 5) ||((dicevalues[5])== 5) ||((dicevalues[6])== 5)){
+        document.getElementById("yahtzeepoints").innerHTML = "50";  
+        }
+        else{
+        document.getElementById("yahtzeepoints").innerHTML = "0";
+        }
+        document.getElementById("yahtzeebutton").disabled = true;
+      }
+      //disable exta yahtzee until yahtzee button is pressed and add extra turns
       function extrayahtzee() {
-        document.getElementById("extrayahtzeepoints").innerHTML = "100";
+        if (((dicevalues[1])== 5) ||((dicevalues[2])== 5) ||((dicevalues[3])== 5) ||((dicevalues[4])== 5) ||((dicevalues[5])== 5) ||((dicevalues[6])== 5)){
+        document.getElementById("extrayahtzeepoints").innerHTML = "100";  
+        }
+        else{
+        document.getElementById("extrayahtzeepoints").innerHTML = "0";
+        }
+      }
+      function chance() {
+        document.getElementById("chancepoints").innerHTML = sumofdice();
+        document.getElementById("chancebutton").disabled = true;
+      }
+      function sumofdice(){
+          let total;
+          total=dice[1]+dice[2]+dice[3]+dice[4]+dice[5];
+          return total;
+      }
+      function sumofnumbers(number){
+        let total;
+        total = dicevalues[number]*number;
+        return total;
       }
     </script>
   </body>
